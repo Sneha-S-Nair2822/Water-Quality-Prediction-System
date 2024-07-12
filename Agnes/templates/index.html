@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Bar</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+        .container {
+            position: relative;
+            text-align: left; 
+            color: whitesmoke;
+        }
+
+        .text {
+            position: absolute;
+            top: 350px; 
+            left: 10px; 
+            font-size:24px;
+            padding-left: 40px;
+            text-align:justify;
+        }
+        .logo img {
+           height: 232px;
+           width: 459px;
+           position: absolute;
+          
+        }
+        img {
+            width: 100%;
+            height: 768px;
+        }
+        .submit-button {
+            background-color: #1b93ec ; /* Set the background color to blue */
+            color: white; /* Set text color to white */
+            padding: 10px 20px; /* Add padding to the button */
+            border: none; /* Remove border */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            border-radius: 25px; /* Add some border radius for rounded corners */
+            font-weight: bold;
+            font-size:17.5px;
+            height:50px;
+            width:150px;
+        }
+
+        /* Style for hover effect */
+        .submit-button:hover {
+            background-color:#105ca2 ; /* Darken the background color on hover */
+        }
+        .flip-box-container {
+      display: flex;
+      
+      height: 50vh;
+      margin-top: 70px;
+    }
+
+    .flip-box {
+      background-color: transparent;
+      width: 400px;
+      height: 300px;
+      perspective: 1000px;
+       margin-right: 20px;
+        margin-left: 20px;
+        
+    }
+
+    .flip-box-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-box:hover .flip-box-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-box-front,
+    .flip-box-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10%;
+      
+    }
+
+    .flip-box-front {
+      background-color: #105ca2 ;
+      color: white;
+      text-align: center;
+     
+    }
+
+    .flip-box-back {
+      background-color:#1b93ec;
+      color: white;
+      transform: rotateY(180deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+
+    .flip-box h2 {
+      margin: 0;
+      padding: 0;
+      line-height: 200px;
+      font-size: 2em;
+    }
+    .image-gallery {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-gallery img {
+  width: 31%;
+  height: auto;
+  margin-top: 70px;
+  margin-left: 20px;
+  margin-right: 20px;
+  
+}
+
+  .submit-btn {
+    background-color: #1b93ec;
+    border-radius: 25px;
+    padding: 10px;
+    
+  }
+  
+  .submit-btn button {
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    height: 35px;
+    width: 150px;
+    font-size: 25px;
+     font-weight: bold;
+  }
+  
+  .submit-btn:hover {
+              background-color:#105ca2 ; /* Darken the background color on hover */
+          }
+          @media only screen and (max-width: 768px) {
+      /* Adjust styles for smaller screens and tablets */
+      header, nav, section, footer {
+          padding: 10px;
+      }
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .pg-footer {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  
+  .footer {
+      background-color: #004658;
+      color: #fff;
+     
+  }
+  .footer-wave-svg {
+      background-color: transparent;
+      display: block;
+      height: 30px;
+      position: relative;
+      top: -1px;
+      width: 100%;
+  }
+  .footer-wave-path {
+      fill: #fffff2;
+  }
+  
+  .footer-content {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1230px;
+      padding: 40px 15px 450px;
+      position: relative;
+      
+  }
+  .footer-content-column {
+    box-sizing: border-box;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    color: #fff;
+}
+.footer-call-to-action {
+    margin-top: 30px;
+}
+  .footer-call-to-action-description {
+      color: #fffff2;
+      margin-top: 10px;
+      margin-bottom: 20px; 
+  }
+  .footer-call-to-action-button:hover {
+      background-color: #fffff2;
+      color: #00bef0;
+  }
+  .button:last-of-type {
+      margin-right: 0;
+  }
+  .footer-call-to-action-button {
+      background-color: #027b9a;
+      border-radius: 21px;
+      color: #fffff2;
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      line-height: 18px;
+      padding: 12px 30px;
+      margin: 0 10px 10px 0;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background-color .2s;
+      cursor: pointer;
+      position: relative;
+  }
+  .footer-call-to-action {
+      margin-top: 30px;
+  }
+  .footer-call-to-action-title {
+      color: #fffff2;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      line-height: 18px;
+      margin-bottom: 0;
+      margin-top: 0;
+      text-transform: uppercase;
+  }
+  .footer-call-to-action-link-wrapper {
+      margin-bottom: 0;
+      margin-top: 10px;
+      color: #fff;
+      text-decoration: none;
+  }
+  .footer-call-to-action-link-wrapper a {
+      color: #fff;
+      text-decoration: none;
+  }
+  .footer-social-links {
+      bottom: 0;
+      height: 54px;
+      position: absolute;
+      right: 0;
+      width: 236px;
+  }
+  
+  
+  .hidden-link-text {
+      position: absolute;
+      clip: rect(1px 1px 1px 1px);
+      clip: rect(1px,1px,1px,1px);
+      -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+      clip-path: inset(0px 0px 99.9% 99.9%);
+      overflow: hidden;
+      height: 1px;
+      width: 1px;
+      padding: 0;
+      border: 0;
+      top: 50%;
+  }
+  
+  .footer-social-icon-svg {
+      display: block;
+  }
+  
+  .footer-social-icon-path {
+      fill: #fffff2;
+      transition: fill .2s;
+  }
+  
+  .footer-copyright {
+      background-color: #027b9a;
+      color: #fff;
+      padding: 15px 30px;
+    text-align: center;
+  }
+  
+  .footer-copyright-wrapper {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1200px;
+  }
+  
+  .footer-copyright-text {
+    color: #fff;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 18px;
+      margin-bottom: 0;
+      margin-top: 0;
+  }
+  
+  .footer-copyright-link {
+      color: #fff;
+      text-decoration: none;
+  }
+  /* Media Query For different screens */
+  @media (min-width:320px) and (max-width:479px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+    .footer-content {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1230px;
+      padding: 40px 15px 1050px;
+      position: relative;
+    }
+  }
+  @media (min-width:480px) and (max-width:599px)  { /* smartphones, Android phones, landscape iPhone */
+    .footer-content {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1230px;
+      padding: 40px 15px 1050px;
+      position: relative;
+    }
+  }
+  @media (min-width:600px) and (max-width: 800px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+    .footer-content {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1230px;
+      padding: 40px 15px 1050px;
+      position: relative;
+    }
+  }
+  @media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
+  
+  }
+  @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */
+  
+  }
+  @media (min-width:1281px) { /* hi-res laptops and desktops */
+  
+  }
+  
+  
+  
+  
+  @media (min-width: 760px) {
+    .footer-content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1230px;
+        padding: 40px 15px 450px;
+        position: relative;
+    }
+  
+    .footer-wave-svg {
+        height: 50px;
+    }
+  
+    .footer-content-column {
+        width: 24.99%;
+    }
+  }
+  @media (min-width: 568px) {
+    /* .footer-content-column {
+        width: 49.99%;
+    } */
+  }
+  
+  
+  .containert {
+            position: relative;
+            text-align: left; 
+            color: whitesmoke;
+        }
+
+        .textt {
+            position: absolute;
+            top: 450px; 
+            left: 10px; 
+            font-size:45px;
+            padding-left: 40px;
+            text-align:justify;
+        }
+
+        imgt {
+            width: 100%;
+            height: 625px;
+        }
+        
+       
+
+.team-member {
+  display: inline-block; /* Display as inline block */
+  width: calc(25% - 50px); /* Adjust width to fit four boxes in a row */
+  margin: 23px;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.photo {
+  text-align: center; /* Align the image to the center horizontally */
+  padding-top: 20px; /* Add padding to push the image down from the top */
+}
+
+.photo img {
+  /* Adjust width of the image */
+  height:auto; /* Adjust height of the image */
+  border-radius: 50%; /* Make the image circular */
+}
+
+.info {
+  padding: 20px;
+}
+
+.info h2 {
+  margin-top: 0;
+}
+
+.info p {
+  margin-bottom: 0;
+}
+
+
+.containero {
+            position: relative;
+            text-align: left; 
+            color: whitesmoke;
+        }
+
+        .text0 {
+            position: absolute;
+            top: 300px; 
+            left: 10px; 
+            font-size:60px;
+            padding-left: 40px;
+            text-align:justify;
+        }
+
+        img0 {
+            width: 100%;
+            height: 700px;
+        }
+        
+       .contain {
+  display: flex;
+}
+
+.image-container {
+  flex: 1;
+}
+
+.image-container img {
+ 
+  margin-top: 120px;
+  padding-left: 20px;
+}
+
+.content-container {
+  flex: 1;
+   padding-left: 100px;
+}
+.content1 {
+    flex: 1;
+    padding-right: 800px;
+     padding-left: 80px;
+}
+.image0 {
+  flex: 1;
+  text-align: right;
+  padding: 20px;
+  position:relative;
+    top: -350px;  }
+
+
+
+    </style>
+</head>
+<body>
+  
+  <div class="logo">
+   
+    <img src="static\MLogo.jpg">
+  </div>
+  <img src="static\1.jpg">
+  
+    
+    <div class="text" color="black"> <h2>Ensuring Clean Water for Everyone</h2>
+    <p>In our commitment to universal access to pure water,<br> we offer
+        predictive insights into water quality.<br>
+        We empower individuals and communities with vital<br> information 
+        for informed decision-making and <br>ensuring access to  clean and
+        safe drinking water for <br>all, contributing to a healthier and more
+        sustainable <br>future through our dedication to water purity.</p>
+    <form action="/predict">
+    <input type="submit" value="Check Quality" class="submit-button">
+</form></div> 
+    <div class="flip-box-container">
+        
+    <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+          <h2 style="padding:50px;">VISION</h2>
+        </div>
+        <div class="flip-box-back">
+          <h3 style="padding-left: 30px; padding-right: 30px;">"To empower communities with transparent water quality insights, ensuring access to clean, hygienic, and drinkable water for all. 
+              Envisioning a world where every individual can easily assess and safeguard the purity of their water sources."</h3>
+        </div>
+      </div>
+    </div>
+    <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+          <h2 style="padding:50px;">MISSION</h2>
+        </div>
+        <div class="flip-box-back">
+          <h3 style="padding-left: 30px; padding-right: 30px;">"Our mission is to provide accessible and reliable water quality predictions, enabling individuals to make informed decisions about their water sources. 
+              We strive to promote health and well-being by ensuring that everyone has access to clean, hygienic, and drinkable water, thus fostering sustainable communities."</h3>
+        </div>
+      </div>
+    </div>
+         <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+          <h2 style="padding:50px;">OBJECTIVE</h2>
+        </div>
+        <div class="flip-box-back">
+          <h3 style="padding-left: 30px; padding-right: 30px;"> "To develop and deploy a user-friendly water quality prediction platform that utilizes advanced technology to empower communities in safeguarding their water sources effectively, 
+              thereby ensuring sustainable access to clean and safe water for future generations."</h3>
+        </div>
+      </div>
+    </div>
+       
+        <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+          <h2 style="padding:50px;">PURPOSE</h2>
+        </div>
+        <div class="flip-box-back">
+          <h3 style="padding-left: 30px; padding-right: 30px;">"Our purpose is to utilize innovative technology to enable communities worldwide in safeguarding their water sources effectively. With a steadfast commitment to preserving clean water for future generations, we aim to inspire proactive conservation actions and promote universal access to safe and reliable water for all."</h3>
+      </div>
+    </div>
+  </div>
+  </div>     
+
+ 
+
+  <h1 style="text-align:center;">Securing Water Quality as a Basic Right</h1><br>
+  <h3 style="margin-left: 200px;margin-right: 200px; text-align:center;">We firmly believe that ensuring access to clean, hygienic water is an inherent entitlement, safeguarded for future generations.
+  We empower communities with accurate water quality predictions, providing the tools and knowledge needed to safeguard their water sources. Together, we can build a 
+  future where clean water is not just a privilege but a perpetual guarantee, enriching lives for generations.</h3><br>
+  <img src="static\2.png" style="margin-left: 40%; width:300px; height:100px;" >
+  <div class="image-gallery">
+  <img src="static\3.jpg" alt="image1"/>
+  <img src="static\4.jpg" alt="image2"/>
+  <img src="static\5.jpg" alt="image3"/>
+</div><br><br><br><br>
+
+  
+   
+   <div class="contain">
+  <div class="image-container">
+    <img src="static\boy-holding.jpg" style="max-width: 100%;
+height: 400px; margin-top: 25px; "/>
+   
+  </div>
+  <div class="content-container">
+    <h1 style="color:black; text-align: left; margin-top: 25px;">Our Solution</h1>
+    
+    <p style="font:32px;color:black;line-height: 1.5; padding-right: 100px; ">Our water quality prediction system involves a hybrid model integrating Support Vector Machines (SVM), Random Forest networks. 
+        This ensemble approach leverages the strengths of each model to enhance prediction accuracy and robustness. Historical water quality data is preprocessed and fed into the hybrid model, which independently processes the data to generate predictions based on its learning patterns and characteristics. 
+        The results are then aggregated to produce a final prediction or estimation of water quality parameters. By combining multiple machine learning techniques, the solution aims to provide reliable insights into water quality, 
+        facilitating informed decision-making in water resource management and environmental conservation efforts.</p>
+  </div>
+</div>
+    <div class="container0">
+      <div class="content1">
+          <h1 style="color:black;margin-top: 130px;">IoT Hardware </h1>
+        
+          <p style="font:32px;color:black;line-height: 1.5;text-align: left;">The IoT hardware utilized in our system comprises standalone pH and turbidity sensors designed for water quality monitoring applications. 
+              These sensors provide local readings of pH levels and turbidity in water bodies. Users manually input these readings into the system for further processing and analysis. While the sensors lack built-in connectivity for automatic data transmission,
+              they offer portability and ease of use, making them suitable for field-based monitoring and sampling activities. By integrating these sensors into our system, we enable users to collect accurate water quality data and contribute to 
+              informed decision-making in water resource management efforts. </p>
+      </div>
+       
+      <div class="image0">
+         
+          <img src="static\SEN0244.jpg"style=" width:45%; height: 450px; padding-left: 200px; margin-bottom: -300px;"/>
+      </div>
+          
+  </div>
+  <img src="static\std.png" style="height:625px; width:100%;"/>
+
+  <h1 style="text-align:center; font-size:50px;">Meet Our Team</h1>
+<h3 style="margin-left: 200px;margin-right: 200px; text-align:center;">Our team consists of dedicated individuals, united by a common goal of developing a water quality prediction and estimation system. 
+    Through efficient task allocation, regular communication, and shared accountability, we've overcome challenges and maintained progress. Each team member brings unique skills and perspectives to the project,
+    contributing to its success through collaboration and synergy.</h3><br><br>
+   <div class="team-member" style="height:535px;">
+  <div class="photo">
+    <img src="static\a.jpeg" alt="Team Member 1" style=" width: 70%; ">
+  </div>
+  <div class="info">
+    <h2 style="text-align:center;">ANULEKSHMI R</h2>
+    <p style="text-align:justify;padding:5px;">Anulekshmi is our proficient IoT hardware specialist, leading the development and integration of sensors and actuators for our project. With expertise in hardware prototyping and firmware development, she ensures our devices meet performance standards, driving the success of our IoT solutions with precision and innovation.<br></p>
+  </div>
+</div>
+<div class="team-member" style="height:535px;">
+  <div class="photo">
+     
+    <img src="static\ar2.jpeg" alt="Team Member 2"  style=" width: 70%;">
+</div>
+  <div class="info">
+    <h2 style="text-align:center;">ARCHA S NAIR</h2>
+    <p style="text-align:justify; padding:5px;">Archa is our proficient IoT hardware specialist, leading the development and integration of sensors and actuators for our project. With expertise in hardware prototyping and firmware development, she ensures our devices meet performance standards, driving the success of our IoT solutions with precision and innovation.<br></p>
+  </div>
+</div>
+<div class="team-member" >
+  <div class="photo">
+      <img src="static\m1.jpeg" alt="Team Member 3" style=" width: 70%; height:100%; ">
+      
+  </div>
+  <div class="info">
+    <h2 style="text-align:center;">MALAVIKA J M</h2>
+    <p style="text-align:justify; padding:10px;">Malavika is our adept website developer, crafting seamless user experiences and ensuring our online platform reflects our project's vision. With expertise in both front-end and back-end technologies, she brings innovation and precision to every aspect of website development, driving our project's success with skill and dedication.</p>
+  </div>
+</div>
+<div class="team-member" style="height:535px;">
+  <div class="photo">
+    <img src="static\sn.jpeg" alt="Team Member 4" style=" width: 60%;">
+    
+  </div>
+  <div class="info">
+    <h2 style="text-align:center;">SNEHA S NAIR</h2>
+    <p style="text-align:justify; padding:10px;">Sneha is our adept website developer, crafting seamless user experiences and ensuring our online platform reflects our project's vision. With expertise in both front-end and back-end technologies, she brings innovation and precision to every aspect of website development, driving our project's success with skill and dedication.</p>
+  </div>
+</div><br><br><br><br>
+
+   <img src="static\MLogo.jpg" style="height: 200px;width:35%;margin-left: 33%;padding-bottom: 30px;">
+  <div class="pg-footer">
+    <footer class="footer">
+      <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1200 100" preserveaspectratio="none">
+        <path class="footer-wave-path" d="M851.8,100c125,0,288.3-45,348.2-64V0H0v44c3.7-1,7.3-1.9,11-2.9C80.7,22,151.7,10.8,223.5,6.3C276.7,2.9,330,4,383,9.8 c52.2,5.7,103.3,16.2,153.4,32.8C623.9,71.3,726.8,100,851.8,100z"></path>
+      </svg>
+      
+      <br><br><br>
+            <h1 style="text-align:center;">Stay Informed and Engaged!</h1>
+            <p style="margin-left: 200px;margin-right: 200px; text-align:center;">"Agnes" is your trusted partner in ensuring safe and clean water for your needs. Our advanced water quality prediction algorithms help you stay informed about the safety and potability of your water sources. 
+              We are committed to providing accurate and reliable water quality assessments to help you make informed decisions.  To stay in the loop, sign up to our website to predict and safeguard water quality. 
+              Join us in safeguarding clean water for a sustainable future.</p><br>
+              <form action="/predict">
+                <input type="submit" value="Check Quality" class="submit-button" style="margin-left: 45%;">
+            </form><br><br><br>
+            
+              
+         
+      <div class="footer-copyright">
+        <div class="footer-copyright-wrapper">
+          <p class="footer-copyright-text">
+            <p class="footer-copyright-link" > Copyright © 2024. | Designed By: Team Agnes | All rights reserved. </p>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
+
+
+ 
+    
+     
+     

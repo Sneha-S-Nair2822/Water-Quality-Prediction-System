@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Quality Assessment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .background {
+      background-color: #fff;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    #overlay {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .projectedBox {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .left-section {
+      flex: 1;
+    }
+
+    .right-section {
+      flex: 1;
+    }
+
+    form {
+      font-size: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button.testButton {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button.testButton:hover {
+      background-color: #0056b3;
+    }
+
+    #predictionResult {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="container">
+      <h1>Water Quality Prediction</h1>
+    </div>
+  </div>
+  <div id="overlay" class="hidden">
+    <div class="projectedBox">
+      
+      <div class="right-section">
+        
+        <form id="assessmentForm" method="POST" , action="{{url_for('predict')}}">
+          <label for="ph">pH :</label>
+          <input type="text" id="ph" name="ph" placeholder="values between 0 to 14"><br><br>
+          <label for="solids">Total Solids :</label>
+          <input type="text" id="solids" name="solids" placeholder="measured in ppm"><br><br>
+          <label for="hardness">Hardness :</label>
+          <input type="text" id="hardness" name="hardness" placeholder="measured in mg/L"><br><br>
+          <label for="conductivity">Conductivity :</label>
+          <input type="text" id="conductivity" name="conductivity" placeholder="measured in μS/cm"><br><br>
+          <label for="turbidity">Turbidity :</label> 
+          <input type="text" id="turbidity" name="turbidity" placeholder="measured in NTU"><br><br>
+        </form><br><br>
+        
+        <button class="testButton" onclick="testQuality()">Test</button>
+        <button class="testButton" id="generateRandomValues" style="margin-left:20px;">Generate Random Values</button>
+      </div>
+    </div>
+  </div>
+  <div id="predictionResult"></div>
+  
+  <!-- Modal -->
+  <div id="resultModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modalResult"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("generateRandomValues").addEventListener("click", function() {
+      document.getElementById("ph").value = Math.random() * 14;
+      document.getElementById("solids").value = Math.random() * 1200; // Assuming maximum value for solids
+      document.getElementById("hardness").value = Math.random() * 500; // Assuming maximum value for hardness
+      document.getElementById("conductivity").value = Math.random() * 1000; // Assuming maximum value for conductivity
+      document.getElementById("turbidity").value = Math.random() * 9; // Assuming maximum value for turbidity
+    });
+
+    function testQuality() {
+      var form = document.getElementById("assessmentForm");
+      var formData = new FormData(form);
+
+      fetch('/prediction', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        displayModal(data);
+      })
+      .catch(error => console.error('Error:', error));
+    }
+
+    // Function to display modal with result
+function displayModal(result) {
+  var modal = document.getElementById("resultModal");
+  var modalResult = document.getElementById("modalResult");
+
+  var resultHTML = "<h2>Prediction Result</h2>";
+  for (var key in result) {
+    if (result.hasOwnProperty(key)) {
+      resultHTML += "<p>" + key + ": " + result[key] + "</p>";
+    }
+  }
+  
+  modalResult.innerHTML = resultHTML;
+  modal.style.display = "block";
+}
+
+
+    // Function to close modal
+    function closeModal() {
+      var modal = document.getElementById("resultModal");
+      modal.style.display = "none";
+    }
+  </script>
+</body>
+</html>
